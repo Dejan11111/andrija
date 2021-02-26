@@ -9,14 +9,17 @@ describe("Registration test", () => {
 
         it("Registration Faild", () => {
          
-            cy.get("#last-name").clear()
+            
             cy.get("#last-name").type('Mejac')
-
-            cy.get("#email").clear().type('mejac91@hotmail.com')
+            cy.get("#email").type('mejac91@hotmail.com')
             cy.get("#password").type('detelinara1991')
             cy.get("#password-confirmation").type('detelinara1991')
             cy.get('input[type="checkbox"]').check()
             cy.get('button[type="submit"]').click()
+            cy.get("#last-name").clear()
+            cy.get("#email").clear()
+            cy.get("#password").clear()
+            cy.get("#password-confirmation").clear()
         })
 
         it("Registration", () => {

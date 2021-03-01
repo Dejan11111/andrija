@@ -1,6 +1,6 @@
 
-
-describe("Login test", () => {
+const data = require("../fixtures/data.json")
+describe("All galleris", () => {
     it ('Visit gallery page', () => {
         cy.visit('https://gallery-app.vivifyideas.com/')
 
@@ -8,5 +8,13 @@ describe("Login test", () => {
 
     it("Search field", () => {
         cy.get('.form-control').click()
+        cy.get('.form-control').type("jedna")
+        cy.get('search').click()
+        
     })
+
+
+
+   
+
 })    

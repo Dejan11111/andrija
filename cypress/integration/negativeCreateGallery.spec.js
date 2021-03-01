@@ -1,6 +1,7 @@
 import {authLogin} from '../page_objects/loginObjects.js'
 import {createGallery} from '../page_objects/createGalleryObjects.js'
 describe("Login test", () => {
+    
     it ('Visit gallery page', () => {
         cy.visit('https://gallery-app.vivifyideas.com/')
 
@@ -17,27 +18,40 @@ describe("CreateGallery",() => {
     it("Create gallery click", () => {
         cy.get(".mr-auto > :nth-child(3) > .nav-link").click()
     })
-      
+
     it("Create gallery-Empty TITLE",() =>{
-        createGallery.create("       ","descriptionJa","https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg")
+        createGallery.create("1","descriptionJa","https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg")
         cy.get('#title').clear()
         cy.get("#description").clear()
         cy.get('.input-group > .form-control').clear()
+        
+        cy.get('.alert')
+        .should('contain', 'The title must be at least 2 characters.')
+        .and('have.class','alert alert-danger')
+        .and('have.css','background-color','rgb(248, 215, 218)')
+        .and('be.visible')
     })
+      
+    // it("Create gallery-Empty TITLE",() =>{
+    //     createGallery.create("       ","descriptionJa","https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg")
+    //     cy.get('#title').clear()
+    //     cy.get("#description").clear()
+    //     cy.get('.input-group > .form-control').clear()
+    // })
 
-    it("Create gallery-Empty URL",() =>{
-        createGallery.create("Titlele","descriptonJa","   ")
-        cy.get('#title').clear()
-        cy.get("#description").clear()
-        cy.get('.input-group > .form-control').clear()
-    })
+    // it("Create gallery-Empty URL",() =>{
+    //     createGallery.create("Titlele","descriptonJa","   ")
+    //     cy.get('#title').clear()
+    //     cy.get("#description").clear()
+    //     cy.get('.input-group > .form-control').clear()
+    // })
 
-    it("Create gallery-Invalid Format URL",() =>{
-        createGallery.create("Titlele","descriptonJa","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5D4AheVG9PcQ0LaBmYdIoDNgYWOtJ7yEtTA&usqp=CAU")
-        cy.get('#title').clear()
-        cy.get("#description").clear()
-        cy.get('.input-group > .form-control').clear()
-    })
+    // it("Create gallery-Invalid Format URL",() =>{
+    //     createGallery.create("Titlele","descriptonJa","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5D4AheVG9PcQ0LaBmYdIoDNgYWOtJ7yEtTA&usqp=CAU")
+    //     cy.get('#title').clear()
+    //     cy.get("#description").clear()
+    //     cy.get('.input-group > .form-control').clear()
+    // })
 
 })
   

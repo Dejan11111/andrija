@@ -1,6 +1,10 @@
 //const locators = require("../fixtures/locators.json")
-import {authLogin} from '../page_objects/loginObjects.js'
 import {createGallery} from '../page_objects/createGalleryObjects.js'
+import {authLogin} from '../page_objects/loginObjects.js'
+
+
+const data = require("../fixtures/data.json")
+
 describe("Login test", () => {
     it ('Visit gallery page', () => {
         cy.visit('https://gallery-app.vivifyideas.com/')
@@ -19,7 +23,7 @@ describe("Login test", () => {
     })
 
     it("Create gallery using POM",() =>{
-        createGallery.create("titleJa","descriptionJa","https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg")
+        createGallery.create(data.login.firstName,data.login.lastName,data.createGalery.url)
         
     })
 

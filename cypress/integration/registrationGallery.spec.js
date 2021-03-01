@@ -1,3 +1,4 @@
+import {registration} from "../page_objects/registerObjects"
 describe("Registration test", () => {
     it('Visit gallery page', () => {
         cy.visit('/')

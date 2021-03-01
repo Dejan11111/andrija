@@ -1,0 +1,25 @@
+{
+    "login" : {
+        "email" : "mejac91@hotmail.com",
+        "password" : "detelinara1991",
+        "passwordComfirmation" : "detelinara1991",
+        "emailWithout" : "mejac91hotmail.com",
+        "emailWithoutCom" : "mejac91@hotmail.",
+        "firstName" : "Dejan",
+        "lastName" : "Mejac"
+        
+        
+    },
+
+    "createGalery" : {
+        "url" : "https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg"
+    },
+
+    "register" : { 
+       
+    },
+    "searchfilter" : {
+        "search" : ".input-group-append > .btn"
+    }
+}
+

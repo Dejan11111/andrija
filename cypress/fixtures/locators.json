@@ -1,0 +1,9 @@
+{
+    "Login" : {
+        "email" : "#email",
+        "Password" : ".password",
+        "Submit" : "button[type='submit']"
+        
+    }
+}
+

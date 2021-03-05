@@ -1,1 +1,7 @@
-{}
+{
+    "baseUrl" : "https://gallery-app.vivifyideas.com/",
+    "env" : {
+        "user_email" : "mejac91@hotmail.com",
+        "user_password" : "detelnara1991"
+    }
+}

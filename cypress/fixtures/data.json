@@ -4,15 +4,12 @@
         "emailWithoutA" : "mejac91hotmail.com",
         "emailWithoutCom" : "mejac91@hotmail.",
         "emailIncorect" : "blabla",
-
         "password" : "detelinara1991",
         "passwordComfirmation" : "detelinara1991",
         "passwordMissNumber" : "detelinara",
         "passwordToShort" : "kraci",
-        
         "firstName" : "Dejan",
         "lastName" : "Mejac",
-
         "submit" : ".btn",
         "loginButton" : "a[href='/login']"
         

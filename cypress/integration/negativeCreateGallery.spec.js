@@ -9,7 +9,7 @@ describe("Login test", () => {
 
     })
     it("login click", () => {
-        cy.get(data.login.submit).click()
+        cy.get(data.login.loginButton).click()
     })
 
     it("Login using POM",() =>{

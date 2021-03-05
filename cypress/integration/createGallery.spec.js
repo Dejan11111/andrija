@@ -1,8 +1,6 @@
 //const locators = require("../fixtures/locators.json")
 import {createGallery} from '../page_objects/createGalleryObjects.js'
 import {authLogin} from '../page_objects/loginObjects.js'
-
-
 const data = require("../fixtures/data.json")
 
 describe("Login test", () => {
@@ -11,8 +9,8 @@ describe("Login test", () => {
        
     })
     it("login click", () => {
-        //cy.get("a[href='/login']").click()
-        cy.get(data.login.submit).click()
+        cy.get("a[href='/login']").click()
+        //cy.get(data.login.submit).click()
     })
 
     it("Login using POM",() =>{

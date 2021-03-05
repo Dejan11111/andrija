@@ -22,14 +22,14 @@ class Register{
     get submit() {
         return cy.get('.btn')
     }
-    registration(firstName,lastName,email,password,passwordComfirmation,acceptTerms,submit){
+    registration(firstName,lastName,email,password,passwordComfirmation){
         this.firstName.type(firstName)
         this.lastName.type(lastName)
         this.email.type(email)
         this.password.type(password)
         this.passwordComfirmation.type(passwordComfirmation)
-        this.acceptTerms.type(acceptTerms)
-        this.submit.type(submit)
+        this.acceptTerms.check()
+        this.submit.click()
     }
 }
 export const register = new Register ()

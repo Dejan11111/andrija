@@ -11,15 +11,16 @@ describe("Login test", () => {
        
     })
     it("login click", () => {
-        cy.get("a[href='/login']").click()
+        //cy.get("a[href='/login']").click()
+        cy.get(data.login.submit).click()
     })
 
     it("Login using POM",() =>{
         authLogin.login("mejac91@hotmail.com","detelinara1991")
     })
 
-    it("Create gallery click", () => {
-        cy.get(".mr-auto > :nth-child(3) > .nav-link").click()
+    it("Create gallery click", () => {       
+        cy.get(data.createGalery.createButton).click()
     })
 
     it("Create gallery using POM",() =>{

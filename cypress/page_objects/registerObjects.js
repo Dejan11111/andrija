@@ -11,22 +11,25 @@ class Register{
     get password() {
         return cy.get('#password')
     }
-    get passwordMissmatch() {
-        return cy.get('.alert')
-    }    
+       
     get passwordComfirmation() {
         return cy.get('#password-confirmation')
+    }
+    
+    get acceptTerms(){
+        return cy.get('.form-check-input')
     }
     get submit() {
         return cy.get('.btn')
     }
-    registration(firstName,lastName,email,password,passwordComfirmation){
+    registration(firstName,lastName,email,password,passwordComfirmation,acceptTerms,submit){
         this.firstName.type(firstName)
         this.lastName.type(lastName)
         this.email.type(email)
         this.password.type(password)
         this.passwordComfirmation.type(passwordComfirmation)
-        this.submit.click()
+        this.acceptTerms.type(acceptTerms)
+        this.submit.type(submit)
     }
 }
 export const register = new Register ()

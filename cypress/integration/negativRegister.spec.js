@@ -1,4 +1,4 @@
-import {register} from "../page_objects/registerObjects"
+import {register} from "../page_objects/registerObjects.js"
 const data = require("../fixtures/data.json")
 describe("Registration test", () => {
     it('Visit gallery page', () => {
@@ -9,21 +9,23 @@ describe("Registration test", () => {
             cy.get('a[href="/register"]').click()
         })
 
-//   //      it("Registration Faild,first name missing", () => {
-//   //       
+       it("Registration Faild,first name missing", () => {
+           register.registration(
+               data.register.firstNameToShort,
+               data.register.lastName,
+               data.register.email,
+                data.register.password,
+                data.register.passwordComfirmation,
+                data.register.acceptTerms,
+                data.register.submit
+           )
+           cy.get("#last-name").clear()
+           cy.get("#email").clear()
+           cy.get("#password").clear()
+           cy.get("#password-confirmation").clear()
+           cy.get(data.register.acceptTerms).click()
             
-//   //          cy.get("#last-name").type('Mejac')
-//    //         cy.get("#email").type('mejac91@hotmail.com')
-//   //          cy.get("#password").type('detelinara1991')
-//   //          cy.get("#password-confirmation").type('detelinara1991')
-//   //          cy.get('input[type="checkbox"]').check()
-//   //          cy.get('button[type="submit"]').click()
-//   //          cy.get("#last-name").clear()
-//    //         cy.get("#email").clear()
-//   //          cy.get("#password").clear()
-//   //          cy.get("#password-confirmation").clear()
-            
-//    //     })
+       })
 
 //    //     it("Registration Faild,last name missing", () => {
          
@@ -40,29 +42,28 @@ describe("Registration test", () => {
 //     //        cy.get("#password-confirmation").clear()
             
 //         })
-
-//         it("Register using POM",() =>{
-//             register.register("mejac91@hotmail.com","detelinara1991")
-//         })
-
-//         it("Registration Faild,invalid format email", () => {
          
-//             cy.get("#first-name").type(data.login.firstName())
-//             cy.get("#last-name").type(data.login.lastName())
-//             cy.get("#email").type(data.login.emailWithout())
-//             cy.get("#password").type(data.login.password())
-//             cy.get("#password-confirmation").type(data.login.passwordComfirmation())
-//             cy.get('input[type="checkbox"]').check()
-//             cy.get('button[type="submit"]').click()
-//             cy.get("#first-name").clear()
-//             cy.get("#last-name").clear()
-//             cy.get("#email").clear()
-//             cy.get("#password").clear()
-//             cy.get("#password-confirmation").clear()
+
+        it("Registration Faild,invalid format email", () => {
+            register.registration(
+                data.register.firstName,
+                data.register.lastName,
+                data.register.emailWithoutCom,
+                data.register.password,
+                data.register.passwordComfirmation,
+                data.register.acceptTerms,
+                data.register.submit
+            )
+         
+            cy.get("#first-name").clear()
+            cy.get("#last-name").clear()
+            cy.get("#email").clear()
+            cy.get("#password").clear()
+            cy.get("#password-confirmation").clear()
             
             
             
-//         })
+        })
 
 //         it("Registration Faild,invalid format email", () => {
          
@@ -173,10 +174,18 @@ describe("Registration test", () => {
                       
         // })
 
-        it("Registracija using POM",() =>{
-            register.registration("first-name","last-name","email","password","password-confirmation")
-          //  cy.get(register.registration.passwordMissmatch).should('contain',"error messages")
-        })
+        // it("Registracija faild,email ",() =>{
+        //     register.registration(
+        //         data.register.firstName,
+        //         data.register.lastName,
+        //         data.register.email,
+        //         data.register.password,
+        //         data.register.passwordComfirmationFail,
+        //         data.register.submit,
+        //         data.register.acceptTerms
+        //     )
+        //     cy.get(data.register.passwordMissmatch).should('contain',"The password confirmation does not match.")
+        // })
 
         // it("Registration Faild,blank space on first name", () => {
          

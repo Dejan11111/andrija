@@ -1,5 +1,7 @@
 import {authLogin} from '../page_objects/loginObjects.js'
 import {createGallery} from '../page_objects/createGalleryObjects.js'
+
+const data = require("../fixtures/data.json")
 describe("Login test", () => {
     
     it ('Visit gallery page', () => {
@@ -7,7 +9,7 @@ describe("Login test", () => {
 
     })
     it("login click", () => {
-        cy.get("a[href='/login']").click()
+        cy.get(data.login.submit).click()
     })
 
     it("Login using POM",() =>{
@@ -16,20 +18,21 @@ describe("Login test", () => {
 describe("CreateGallery",() => {
     
     it("Create gallery click", () => {
-        cy.get(".mr-auto > :nth-child(3) > .nav-link").click()
+        //createGallery.createG.click()
+        cy.get(data.createGalery.createButton).click()
     })
 
     it("Create gallery-Empty TITLE",() =>{
-        createGallery.create("1","descriptionJa","https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg")
-        cy.get('#title').clear()
-        cy.get("#description").clear()
-        cy.get('.input-group > .form-control').clear()
-        
-        cy.get('.alert')
-        .should('contain', 'The title must be at least 2 characters.')
-        .and('have.class','alert alert-danger')
-        .and('have.css','background-color','rgb(248, 215, 218)')
-        .and('be.visible')
+        createGallery.create(data.createGalery.title,data.createGalery.descriptions,data.createGalery.url)       
+        //cy.get('#title').clear()
+        //cy.get("#description").clear()
+       // cy.get('.input-group > .form-control').clear()
+       
+         cy.get('.alert')
+         .should('contain', 'The title must be at least 2 characters.')
+         .and('have.class','alert alert-danger')
+         .and('have.css','background-color','rgb(248, 215, 218)')
+         .and('be.visible')
     })
       
     // it("Create gallery-Empty TITLE",() =>{

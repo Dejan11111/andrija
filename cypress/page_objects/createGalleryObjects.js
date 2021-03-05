@@ -11,6 +11,9 @@ class CreateGallery{
     get submit() {
         return cy.get('form > :nth-child(4)')
     }
+    // get createG() {
+    //     return cy.get('.mr-auto > :nth-child(3) > .nav-link')
+    // }
     create(title,description,images){
         this.title.type(title)
         this.description.type(description)

@@ -1,78 +1,62 @@
+import {authLogin} from '../page_objects/loginObjects.js'
+
+const data = require("../fixtures/data.json")
 
 describe("Login test", () => {
     it ('Visit gallery page', () => {
         cy.visit('/')
-        
-       
+              
     })
     it("login click", () => {
-        cy.get("a[href='/login']").click()
+        cy.get(data.login.loginButton).click()
     })
 
-    it("Login with incorrect email", () => {
-        cy.get('#email').type('mejac91hotmail.com')       
-        cy.get('#password').type('detelinara1991')      
-        cy.get('button[type="submit"]').click()
+     it("Login using POM,incorrect email missing A",() =>{
+         authLogin.login(data.login.emailWithoutA,data.login.password,data.login.submit)
         cy.get('#email').clear()
         cy.get('#password').clear()
-    })
+     })
+
     
+    it("Login using POM,email without COM",() =>{
+        authLogin.login(data.login.emailWithoutCom,data.login.password,data.login.submit)
+       cy.get('#email').clear()
+       cy.get('#password').clear()
+    })
+
 
     it("Login with incorrect email", () => {
-        cy.get('#email').type('mejac91@hotmail.')
-        cy.get('#password').type('detelinara1991')
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        cy.get('#password').clear()
+        authLogin.login(data.login.emailIncorect,data.login.password,data.login.submit)
+         cy.get('#email').clear()
+         cy.get('#password').clear()
     })
 
-    it("Login with incorrect email", () => {
-        cy.get('#email').type('blabla')
-        cy.get('#password').type('detelinara1991')
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        cy.get('#password').clear()
-    })
-
-    it("Login without email", () => {
+    it("Login without email(empty string)", () => {
+        authLogin.login(" ",data.login.password,data.login.submit)
+         cy.get('#email').clear()
+         cy.get('#password').clear()
         
-        cy.get('#password').type('detelinara1991')
-        cy.get('button[type="submit"]').click()
-        cy.get('#password').clear()
-        
-    })
+     })
 
-    it("Login with incorrect password, 8 characters but no numbers", () => {
-        cy.get('#email').type('mejac91@hotmail.com')       
-        cy.get('#password').type('detelinara')      
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        cy.get('#password').clear()
-    })
+     it("Login with incorrect password, 8 characters but no numbers", () => {
+        authLogin.login(data.login.email,data.login.passwordMissNumber,data.login.submit)
+         cy.get('#email').clear()
+         cy.get('#password').clear()
+     })
 
-    it("Login with incorrect password less than 8 characters ", () => {
-        cy.get('#email').type('mejac91@hotmail.com')       
-        cy.get('#password').type('trasssd')      
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        cy.get('#password').clear()
-    })
+     it("Login with incorrect password less than 8 characters ", () => {
+         authLogin.login(data.login.email,data.login.passwordToShort,data.login.submit)
+         cy.get('#email').clear()
+         cy.get('#password').clear()
+     })
 
-    it("Login with incorrect password", () => {
-        cy.get('#email').type('mejac91@hotmail.com')       
-        cy.get('#password').type('12344')      
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        cy.get('#password').clear()
-    })
+     
 
-    it("Login without password", () => {
-        cy.get('#email').type('mejac91@hotmail.com')                   
-        cy.get('button[type="submit"]').click()
-        cy.get('#email').clear()
-        
+    it("Login without password(empty string)", () => {
+        authLogin.login(data.login.email," ",data.login.submit)
+                
     })
 
 
 
-})
+ })

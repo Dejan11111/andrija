@@ -1,21 +1,50 @@
 {
     "login" : {
         "email" : "mejac91@hotmail.com",
+        "emailWithoutA" : "mejac91hotmail.com",
+        "emailWithoutCom" : "mejac91@hotmail.",
+        "emailIncorect" : "blabla",
+
         "password" : "detelinara1991",
         "passwordComfirmation" : "detelinara1991",
-        "emailWithout" : "mejac91hotmail.com",
-        "emailWithoutCom" : "mejac91@hotmail.",
+        "passwordMissNumber" : "detelinara",
+        "passwordToShort" : "kraci",
+        
         "firstName" : "Dejan",
-        "lastName" : "Mejac"
+        "lastName" : "Mejac",
+
+        "submit" : ".btn",
+        "loginButton" : "a[href='/login']"
         
         
     },
 
     "createGalery" : {
-        "url" : "https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg"
+        "url" : "https://static.beta.rs/thumbs/rotko-plavo-zuto.585x371.jpg",
+        "createButton" : ".mr-auto > :nth-child(3) > .nav-link",
+        "descriptions" : "description",
+        "title" : "1",
+        "alert" : ""
+        
+
     },
 
     "register" : { 
+        "email" : "mejac91@hotmail.com",
+        "emailWithoutCom" : "mejac91@hotmail.",
+        
+        "password" : "detelinara1991",
+        "passwordComfirmation" : "detelinara1991",
+        "passwordComfirmationFail" : "detelinara",
+        "passwordMissmatch" : ".alert",
+
+        "firstName" : "Dejan",
+        "firstNameToShort" : " ",
+        "lastName" : "Mejac",
+        "submit" : ".btn",
+        "acceptTerms" : ".form-check-input",
+
+        "registrationClick" : ":nth-child(2) > .nav-link"
        
     },
     "searchfilter" : {
